@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | RedStore</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body{
+        background: linear-gradient(45deg,blue,#fff);
+    }
+    nav{
+        background-color: #fff;
+    }
+    .contact-form {
+      max-width: 600px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background-color: #fff;
+      box-shadow: 0 0 10px #ccc;
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+      
+    }
+    .contact-form h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      color: #333;
+    }
+    .contact-form label {
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: Arial;
+    }
+    .contact-form textarea {
+      resize: vertical;
+      height: 150px;
+    }
+    .contact-form button {
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">RedStore</div>
+    <ul class="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#product-section">Products</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><button class="btn">Cart</button></li>
+    </ul>
+  </nav>
+
+  <!-- Contact Form -->
+  <section class="contact-form">
+    <h2>Contact Us</h2>
+    <form action="#" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>

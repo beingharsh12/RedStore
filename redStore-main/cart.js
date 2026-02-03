@@ -1,6 +1,5 @@
 const jsCart2 = document.querySelector('.cartItems');
 
-// // // localStorage se cart le lo
 let cart2 = JSON.parse(localStorage.getItem('cart')) || [];
 
 function renderCart() {

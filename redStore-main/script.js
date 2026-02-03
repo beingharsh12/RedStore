@@ -1,6 +1,6 @@
 // import { cart, addToCart, renderCart } from "./cart.js";
-const ProductsGrid = document.querySelector('.main')
-const jsCart = document.querySelector('.cartItems')
+const ProductsGrid = document.querySelector(".main");
+const jsCart = document.querySelector(".cartItems");
 
 // const products = [
 //     {
@@ -61,7 +61,6 @@ const jsCart = document.querySelector('.cartItems')
 //     }
 // ];
 
-
 // function addProducts() {
 //     let clutter = ''
 //     products.forEach((obj) => {
@@ -87,19 +86,23 @@ const jsCart = document.querySelector('.cartItems')
 //     })
 // }
 // addProducts()
-let products = []
-let cart = []
-
+let products = [];
+let cart = [];
+const navLinks = document.querySelector(".navLinks");
+const menu = document.querySelector(".menu-icon");
+menu.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
 
 async function addProducts() {
-    const url = 'https://fakestoreapi.com/products'
-    const res = await fetch(url);
-    products = await res.json()
-    console.log(products);
+  const url = "https://fakestoreapi.com/products";
+  const res = await fetch(url);
+  products = await res.json();
+  console.log(products);
 
-    let clutter = ''
-    products.forEach((obj, index) => {
-        clutter += `
+  let clutter = "";
+  products.forEach((obj, index) => {
+    clutter += `
             <div class="prod" data-aos="zoom-in">
                     <div class="image">
                         <img src="${obj.image}" alt="${obj.image}">
@@ -107,10 +110,10 @@ async function addProducts() {
                     <div class="description">
     
                         
-                        <h3 class="productTitle">${obj.title.split(" ").slice(0, 6).join(' ')}</h3>
+                        <h3 class="productTitle">${obj.title.split(" ").slice(0, 6).join(" ")}</h3>
                         <div class="ratings"></div>
                         <p>
-                        ${obj.description.split(" ").slice(0, 15).join(' ')}
+                        ${obj.description.split(" ").slice(0, 15).join(" ")}
                         </p>
                         <div class="price">
                             <div class="current-price">$${obj.price}</div>
@@ -119,13 +122,11 @@ async function addProducts() {
                         <button class="addCart btn" data-index="${index}">Add To Cart</button>
                     </div>
                 </div>
-        `
-
-    })
-    ProductsGrid.innerHTML = clutter;
-
+        `;
+  });
+  ProductsGrid.innerHTML = clutter;
 }
-addProducts()
+addProducts();
 
 // function addCart() {
 //     document.addEventListener('click', (e) => {
@@ -144,7 +145,7 @@ addProducts()
 //     let clutter = ''
 //     cart.forEach((obj) => {
 //         clutter += `
-        
+
 //         <div class="prod">
 //                 <div class="image">
 //                     <img src="${obj.image}" alt="">
@@ -164,22 +165,17 @@ addProducts()
 // }
 // showCart();
 
-document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('addCart')) {
-        const index = e.target.dataset.index;
-        const product = products[index];
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("addCart")) {
+    const index = e.target.dataset.index;
+    const product = products[index];
 
-        // cart me add karo
-        cart.push(product);
+    // cart me add karo
+    cart.push(product);
 
-        // localStorage me save karo (stringify zaruri hai)
-        localStorage.setItem('cart', JSON.stringify(cart));
+    // localStorage me save karo (stringify zaruri hai)
+    localStorage.setItem("cart", JSON.stringify(cart));
 
-        console.log(cart);
-    }
+    console.log(cart);
+  }
 });
-
-
-
-
-
